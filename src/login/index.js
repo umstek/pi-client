@@ -1,18 +1,13 @@
 /**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
+ * Created by wickramaranga on 3/24/17.
  */
 
 import 'antd/dist/antd.css';
 import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
+import LoginForm from '../../components/Login/Login';
 
-class HomePage extends React.Component {
+class LoginPage extends React.Component {
 
   static propTypes = {
     articles: PropTypes.arrayOf(PropTypes.shape({
@@ -29,10 +24,10 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-
+        <LoginForm />
       </Layout>
     );
   }
 }
 
-export default HomePage;
+export default LoginPage;

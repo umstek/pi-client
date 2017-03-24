@@ -13,17 +13,17 @@ import Link from '../Link';
 
 function Footer() {
   return (
-    <footer className="mdl-mini-footer">
-      <div className="mdl-mini-footer__left-section">
-        <div className="mdl-logo">© Company Name</div>
-        <ul className="mdl-mini-footer__link-list">
+    <footer className="">
+      <div className="">
+        <div className="">© Company Name</div>
+        <ul className="">
           <li><Link to="/privacy">Privacy & Terms</Link></li>
           <li><Link to="/not-found">Not Found</Link></li>
         </ul>
       </div>
-      <div className="mdl-mini-footer__right-section">
-        <ul className="mdl-mini-footer__link-list">
-          <li className="mdl-mini-footer--social-btn" style={{ backgroundColor: 'transparent' }}>
+      <div className="">
+        <ul className="">
+          <li className="" style={{ backgroundColor: 'transparent' }}>
             <a href="https://github.com/kriasoft/react-static-boilerplate" role="button" title="GitHub">
               <svg width="36" height="36" viewBox="0 0 24 24">
                 <path
@@ -41,7 +41,7 @@ function Footer() {
               </svg>
             </a>
           </li>
-          <li className="mdl-mini-footer--social-btn" style={{ backgroundColor: 'transparent' }}>
+          <li className="" style={{ backgroundColor: 'transparent' }}>
             <a href="https://twitter.com/ReactStatic" role="button" title="Twitter">
               <svg width="36" height="36" viewBox="0 0 24 24">
                 <path

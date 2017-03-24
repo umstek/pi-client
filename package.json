@@ -14,7 +14,6 @@
     "history": "^4.6.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-mdl": "^1.9.0",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
     "whatwg-fetch": "^2.0.3"
@@ -25,6 +24,7 @@
     "babel-core": "^6.24.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.4.1",
+    "babel-plugin-import": "^1.1.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
@@ -82,7 +82,15 @@
       "react"
     ],
     "plugins": [
-      "transform-runtime"
+      "transform-runtime",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryPath": "libx",
+          "style": "css"
+        }
+      ]
     ]
   },
   "eslintConfig": {
