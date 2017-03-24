@@ -25,6 +25,10 @@
     "page": "./login"
   },
   {
+    "path": "/signup",
+    "page": "./signup"
+  },
+  {
     "path": "/syllabus",
     "page": "./syllabus"
   },

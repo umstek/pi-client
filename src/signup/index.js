@@ -4,9 +4,9 @@
 
 import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
-import LoginForm from '../../components/Login';
+import SignupForm from '../../components/Signup';
 
-class LoginPage extends React.Component {
+class SignupPage extends React.Component {
 
   static propTypes = {
     articles: PropTypes.arrayOf(PropTypes.shape({
@@ -23,10 +23,10 @@ class LoginPage extends React.Component {
   render() {
     return (
       <Layout>
-        <LoginForm />
+        <SignupForm />
       </Layout>
     );
   }
 }
 
-export default LoginPage;
+export default SignupPage;

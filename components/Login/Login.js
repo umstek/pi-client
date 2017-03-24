@@ -4,6 +4,7 @@
 
 import React, { PropTypes } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import Link from '../Link';
 
 const FormItem = Form.Item;
 const loginFormStyle = { maxWidth: 300 };
@@ -14,6 +15,8 @@ class NormalLoginForm extends React.Component {
   static propTypes = {
     form: PropTypes.objectOf(Form).isRequired,
   };
+
+  state = {};
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -53,7 +56,7 @@ class NormalLoginForm extends React.Component {
           <Button type="primary" htmlType="submit" className="login-form-button" style={loginFormButtonStyle}>
             Log in
           </Button>
-          Or <a>register now!</a>
+          Or <Link to="signup">register now!</Link>
         </FormItem>
       </Form>
     );
