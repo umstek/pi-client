@@ -1,5 +1,5 @@
 import enUS from 'antd/lib/locale-provider/en_US';
-import React, { PropTypes } from 'react';
+import React, {} from 'react';
 import { LocaleProvider, Layout } from 'antd';
 import Navigation from './Navigation';
 
@@ -8,11 +8,6 @@ const Footer = Layout.Footer;
 const Header = Layout.Header;
 
 class PageLayout extends React.Component {
-
-  static propTypes = {
-    className: PropTypes.string,
-  };
-
   componentDidMount() {
 
   }
@@ -32,7 +27,7 @@ class PageLayout extends React.Component {
             <div {...this.props} />
           </Content>
           <Footer>
-            <label>C</label>
+            Copyright UMSTeK
           </Footer>
         </Layout>
       </LocaleProvider>

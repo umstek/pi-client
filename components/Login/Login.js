@@ -2,7 +2,7 @@
  * Created by wickramaranga on 3/23/17.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 
 const FormItem = Form.Item;
@@ -11,6 +11,10 @@ const loginFormForgotStyle = { float: 'right' };
 const loginFormButtonStyle = { width: '100%' };
 
 class NormalLoginForm extends React.Component {
+  static propTypes = {
+    form: PropTypes.objectOf(Form).isRequired,
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {

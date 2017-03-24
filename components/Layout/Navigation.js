@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
-import Link from "../Link/Link";
+import Link from '../Link/Link';
 
 const AMenu = Menu;
 // const SubMenu = Menu.SubMenu;

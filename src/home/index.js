@@ -28,9 +28,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <Layout>
-
-      </Layout>
+      <Layout />
     );
   }
 }
