@@ -1,20 +1,13 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-import React, { PropTypes } from 'react';
-import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
-import Header from './Header';
-import Footer from '../Footer';
+import React, { PropTypes } from 'react';
+import { LocaleProvider, Layout } from 'antd';
+import Navigation from './Navigation';
 
-class Layout extends React.Component {
+const Content = Layout.Content;
+const Footer = Layout.Footer;
+const Header = Layout.Header;
+
+class PageLayout extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
@@ -31,18 +24,20 @@ class Layout extends React.Component {
   render() {
     return (
       <LocaleProvider locale={enUS}>
-        <div>
-          <div>
-            <Header />
-            <main>
-              <div {...this.props} />
-              <Footer />
-            </main>
-          </div>
-        </div>
+        <Layout>
+          <Header>
+            <Navigation />
+          </Header>
+          <Content>
+            <div {...this.props} />
+          </Content>
+          <Footer>
+            <label>C</label>
+          </Footer>
+        </Layout>
       </LocaleProvider>
     );
   }
 }
 
-export default Layout;
+export default PageLayout;

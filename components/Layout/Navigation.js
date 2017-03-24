@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
+import Link from "../Link/Link";
 
 const AMenu = Menu;
 // const SubMenu = Menu.SubMenu;
@@ -26,32 +27,46 @@ class Navigation extends React.Component {
         mode="horizontal"
       >
         <MenuItem key="feed">
-          <Icon type="solution" />
-          Feed
+          <Link to="feed">
+            <Icon type="solution" />
+            Feed
+          </Link>
         </MenuItem>
         <MenuItem key="timeline">
-          <Icon type="bars" />
-          Timeline
+          <Link to="timeline">
+            <Icon type="bars" />
+            Timeline
+          </Link>
         </MenuItem>
         <MenuItem key="calendar">
-          <Icon type="calendar" />
-          Calendar
+          <Link to="calendar">
+            <Icon type="calendar" />
+            Calendar
+          </Link>
         </MenuItem>
         <MenuItem key="syllabus">
-          <Icon type="book" />
-          Syllabus
+          <Link to="syllabus">
+            <Icon type="book" />
+            Syllabus
+          </Link>
         </MenuItem>
         <MenuItem key="home">
-          <Icon type="home" />
-          Home
-        </MenuItem>
-        <MenuItem key="profile" style={{ float: 'right' }}>
-          <Icon type="user" />
-          Profile
+          <Link to=".">
+            <Icon type="home" />
+            Home
+          </Link>
         </MenuItem>
         <MenuItem key="settings" style={{ float: 'right' }}>
-          <Icon type="setting" />
-          Settings
+          <Link to="settings">
+            <Icon type="setting" />
+            Settings
+          </Link>
+        </MenuItem>
+        <MenuItem key="profile" style={{ float: 'right' }}>
+          <Link to="profile">
+            <Icon type="user" />
+            Profile
+          </Link>
         </MenuItem>
       </AMenu>
     );

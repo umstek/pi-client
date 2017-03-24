@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import './Login.css';
 
 const FormItem = Form.Item;
 const loginFormStyle = { maxWidth: 300 };

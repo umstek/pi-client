@@ -23,5 +23,29 @@
   {
     "path": "/login",
     "page": "./login"
+  },
+  {
+    "path": "/syllabus",
+    "page": "./syllabus"
+  },
+  {
+    "path": "/feed",
+    "page": "./feed"
+  },
+  {
+    "path": "/timeline",
+    "page": "./timeline"
+  },
+  {
+    "path": "/calendar",
+    "page": "./calendar"
+  },
+  {
+    "path": "/settings",
+    "page": "./settings"
+  },
+  {
+    "path": "/profile",
+    "page": "./profile"
   }
 ]
