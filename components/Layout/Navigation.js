@@ -2,9 +2,9 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 
 const AMenu = Menu;
-const SubMenu = Menu.SubMenu;
+// const SubMenu = Menu.SubMenu;
 const MenuItem = Menu.Item;
-const MenuItemGroup = Menu.ItemGroup;
+// const MenuItemGroup = Menu.ItemGroup;
 
 class Navigation extends React.Component {
   state = {
@@ -20,30 +20,38 @@ class Navigation extends React.Component {
   render() {
     return (
       <AMenu
+        theme="dark"
         onClick={this.handleClick}
         selectedKeys={[this.state.current]}
         mode="horizontal"
       >
-        <MenuItem key="mail">
-          <Icon type="mail" />
-          Navigation One
+        <MenuItem key="feed">
+          <Icon type="solution" />
+          Feed
         </MenuItem>
-        <MenuItem key="app" disabled>
-          <Icon type="appstore" />
-          Navigation Two
+        <MenuItem key="timeline">
+          <Icon type="bars" />
+          Timeline
         </MenuItem>
-        <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
-          <MenuItemGroup title="Item 1">
-            <MenuItem key="setting:1">Option 1</MenuItem>
-            <MenuItem key="setting:2">Option 2</MenuItem>
-          </MenuItemGroup>
-          <MenuItemGroup title="Item 2">
-            <MenuItem key="setting:3">Option 3</MenuItem>
-            <MenuItem key="setting:4">Option 4</MenuItem>
-          </MenuItemGroup>
-        </SubMenu>
-        <MenuItem key="alipay">
-          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+        <MenuItem key="calendar">
+          <Icon type="calendar" />
+          Calendar
+        </MenuItem>
+        <MenuItem key="syllabus">
+          <Icon type="book" />
+          Syllabus
+        </MenuItem>
+        <MenuItem key="home">
+          <Icon type="home" />
+          Home
+        </MenuItem>
+        <MenuItem key="profile" style={{ float: 'right' }}>
+          <Icon type="user" />
+          Profile
+        </MenuItem>
+        <MenuItem key="settings" style={{ float: 'right' }}>
+          <Icon type="setting" />
+          Settings
         </MenuItem>
       </AMenu>
     );
