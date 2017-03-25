@@ -3,7 +3,7 @@
  */
 
 import React, { PropTypes } from 'react';
-import { Form, Input, Tooltip, Icon, /* Select,*/ Checkbox, Button } from 'antd';
+import { Form, Input, Tooltip, Icon, /* Select,*/ Checkbox, Button, Modal } from 'antd';
 import Link from '../Link';
 
 const FormItem = Form.Item;
@@ -22,7 +22,7 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+
       }
     });
   };

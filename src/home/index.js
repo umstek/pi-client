@@ -8,9 +8,8 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import 'antd/dist/antd.css';
 import React, { PropTypes } from 'react';
-import Layout from '../../components/Layout';
+import PageLayout from '../../components/Layout';
 
 class HomePage extends React.Component {
 
@@ -28,7 +27,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <Layout />
+      <PageLayout />
     );
   }
 }

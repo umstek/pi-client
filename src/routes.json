@@ -30,7 +30,10 @@
   },
   {
     "path": "/syllabus",
-    "page": "./syllabus"
+    "page": "./syllabus",
+    "data": {
+      "subjects": "GET http://localhost:4000/api/Syllabuses/58d65f3b120b8d4fd343a821/subjects"
+    }
   },
   {
     "path": "/feed",
@@ -38,7 +41,11 @@
   },
   {
     "path": "/timeline",
-    "page": "./timeline"
+    "page": "./timeline",
+    "data": {
+      "breaks": "GET http://localhost:4000/api/Timelines/58d68371120b8d4fd343a829/breaks",
+      "sessions": "GET http://localhost:4000/api/Timelines/58d68371120b8d4fd343a829/sessions"
+    }
   },
   {
     "path": "/calendar",

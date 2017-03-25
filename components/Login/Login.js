@@ -3,8 +3,9 @@
  */
 
 import React, { PropTypes } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox, Modal } from 'antd';
 import Link from '../Link';
+import history from '../../src/history';
 
 const FormItem = Form.Item;
 const loginFormStyle = { maxWidth: 300 };
@@ -22,6 +23,41 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        fetch('http://localhost:4000/api/SystemUsers/login',
+          {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(values),
+          })
+          .then((response) => {
+            console.log('Received values of form: ', response);
+            if (response.ok) {
+              Modal.success({
+                title: 'Success',
+                content: 'Logged-in successfully. ',
+                onOk() {
+                  // Closing of modal is handled by immediately resolving a promise.
+                  return new Promise((resolve) => {
+                    history.push('/'); // redirect
+                    resolve();
+                  });
+                },
+              });
+            } else {
+              Modal.warn({
+                title: response.statusText,
+                content: 'Cannot log-in. Please check your username and password. ',
+              });
+            }
+          })
+          .catch((error) => {
+            Modal.error({
+              title: 'Error',
+              content: JSON.stringify(error),
+            });
+          });
         console.log('Received values of form: ', values);
       }
     });
@@ -32,7 +68,7 @@ class NormalLoginForm extends React.Component {
     return (
       <Form onSubmit={this.handleSubmit} style={loginFormStyle} className="login-form">
         <FormItem>
-          {getFieldDecorator('userName', {
+          {getFieldDecorator('username', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
             <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />,
