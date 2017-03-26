@@ -37,7 +37,10 @@
   },
   {
     "path": "/feed",
-    "page": "./feed"
+    "page": "./feed",
+    "data": {
+      "articles": "GET http://localhost:4000/api/Articles"
+    }
   },
   {
     "path": "/timeline",

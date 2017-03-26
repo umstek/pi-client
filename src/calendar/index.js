@@ -2,9 +2,11 @@
 import css from '!!style-loader!css-loader!./calendar.css';
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
-import {} from 'antd';
+import { Tooltip } from 'antd';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import PageLayout from '../../components/Layout/Layout';
+
+const customTooltipDataAttrs = { 'data-toggle': 'tooltip' };
 
 class CalendarPage extends Component {
 
@@ -47,11 +49,16 @@ class CalendarPage extends Component {
   render() {
     return (
       <PageLayout>
+        {/* <svg>*/}
+        {/* <Tooltip overlay="okay">*/}
+        {/* <rect height={10} width={10}></rect>*/}
+        {/* </Tooltip>*/}
+        {/* </svg>*/}
         <CalendarHeatmap
           values={this.generateRandomValues(100, this.today)}
           classForValue={this.gitlabClassForValue}
           titleForValue={this.customTitleForValue}
-          tooltipDataAttrs={this.customTooltipDataAttrs}
+          tooltipDataAttrs={customTooltipDataAttrs}
           onClick={this.customOnClick}
         />
       </PageLayout>

@@ -1,10 +1,17 @@
-// import ReactTestUtils from 'react-addons-test-utils';
-import { expect } from 'chai';
+import React from 'react';
+import chai, { expect } from 'chai';
+import chaiEnzyme from 'chai-enzyme';
+import { mount, render, shallow } from 'enzyme';
+
+chai.use(chaiEnzyme());
+// const wrapper = render(<Navigation />);
 
 describe('test suite', () => {
 
-  it('test', () => {
-    expect(true).to.be.true;
+  it('renders', () => {
+    // console.log(wrapper);
+    // expect(wrapper).to.have.type(Navigation);
   });
 
 });
+

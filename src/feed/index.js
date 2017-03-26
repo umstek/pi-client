@@ -7,7 +7,7 @@ class FeedPage extends Component {
   static propTypes = {
     articles: PropTypes.arrayOf(PropTypes.shape({
       title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
+      contentAuthorId: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
     }).isRequired).isRequired,
   };
@@ -20,7 +20,7 @@ class FeedPage extends Component {
       <PageLayout>
         {
           this.props.articles.map((article) => {
-            <div>
+            return <div>
               <h2>{article.title}</h2>
               <h3>{article.author}</h3>
               <div dangerouslySetInnerHTML={{ __html: article.content }} />

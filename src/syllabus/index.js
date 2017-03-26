@@ -5,6 +5,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import PageLayout from '../../components/Layout';
+import Subject from '../../components/Syllabus/Subject';
 
 const { Header, Footer, Sider, Content } = Layout;
 const AMenu = Menu;
@@ -45,17 +46,7 @@ class SyllabusPage extends Component {
               }
             </AMenu>
           </Sider>
-          <Layout>
-            <Header style={{ background: '#fff', padding: 0 }} />
-            <Content style={{ margin: '24px 16px 0' }}>
-              <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                content
-              </div>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>
-
-            </Footer>
-          </Layout>
+          <Subject />
         </Layout>
       </PageLayout>
     );
