@@ -2250,6 +2250,12 @@ draft-js@^0.10.0, draft-js@~0.10.0:
     immutable "~3.7.4"
     object-assign "^4.1.0"
 
+draftjs-utils@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/draftjs-utils/-/draftjs-utils-0.7.0.tgz#71a9706d11e84888d7cf07b5665612e59973f1b7"
+  dependencies:
+    immutable "^3.x.x"
+
 duplexer2@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/duplexer2/-/duplexer2-0.0.2.tgz#c614dcf67e2fb14995a91711e5a617e8a60a31db"
@@ -3395,9 +3401,13 @@ ignore@^3.2.0:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.6.tgz#26e8da0644be0bb4cb39516f6c79f0e0f4ffe48c"
 
-immutable@3.8.1, immutable@^3.7.4, immutable@^3.7.6, immutable@^3.8.1:
+immutable@3.8.1, immutable@^3.7.4, immutable@^3.7.6, immutable@^3.8.1, immutable@^3.x.x:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
+
+immutable@^4.0.0-rc.1:
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.0.0-rc.2.tgz#fdd0948aae728fda2306a02f72bb73e1773432d1"
 
 immutable@~3.7.4:
   version "3.7.6"
@@ -5727,6 +5737,14 @@ react-dom@^15.4.2:
     fbjs "^0.8.1"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+
+react-draft-wysiwyg@^1.8.4:
+  version "1.8.4"
+  resolved "https://registry.yarnpkg.com/react-draft-wysiwyg/-/react-draft-wysiwyg-1.8.4.tgz#f0c43947d16dcd601a1b4f9a2537ded0dd15fff8"
+  dependencies:
+    classnames "^2.2.5"
+    draftjs-utils "^0.7.0"
+    immutable "^4.0.0-rc.1"
 
 react-hammerjs@~0.5.0:
   version "0.5.0"
