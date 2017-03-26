@@ -11,6 +11,7 @@ class EditorPage extends React.Component {
   }
 
   componentDidMount() {
+    document.title = 'Editor';
   }
 
   onEditorStateChange = (editorState) => {

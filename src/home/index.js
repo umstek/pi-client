@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import PageLayout from '../../components/Layout';
 
-class HomePage extends React.Component {
+class HomePage extends Component {
 
   static propTypes = {
     articles: PropTypes.arrayOf(PropTypes.shape({
@@ -12,7 +12,7 @@ class HomePage extends React.Component {
   };
 
   componentDidMount() {
-    // document.title = title;
+    document.title = 'Home';
   }
 
   render() {
