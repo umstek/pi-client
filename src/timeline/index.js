@@ -1,7 +1,3 @@
-/**
- * Created by wickramaranga on 3/24/17.
- */
-
 import React, { PropTypes, Component } from 'react';
 import { Timeline, Tooltip, Layout } from 'antd';
 import PageLayout from '../../components/Layout';
