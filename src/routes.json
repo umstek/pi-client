@@ -65,5 +65,9 @@
   {
     "path": "/editor",
     "page": "./editor"
+  },
+  {
+    "path": "/timer/:timerid",
+    "page": "./timer"
   }
 ]
