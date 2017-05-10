@@ -1,17 +1,40 @@
-import { createStore } from 'redux';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { autoRehydrate, persistStore } from 'redux-persist';
+import { REHYDRATE } from 'redux-persist/constants';
 
-// Centralized application state
-// For more information visit http://redux.js.org/
-const initialState = { count: 0 };
-
-const store = createStore((state = initialState, action) => {
-  // TODO: Add action handlers (aka "reducers")
+function login(state = {}, action) {
   switch (action.type) {
-    case 'COUNT':
-      return { ...state, count: (state.count) + 1 };
+    case 'LOGIN':
+      return {
+        ...state,
+        accessToken: action.id,
+        userId: action.userId,
+      };
+    case 'LOGOUT':
+      return {};
     default:
       return state;
   }
-});
+}
+
+function rehydrate(state = {}, action) {
+  switch (action.type) {
+    case REHYDRATE:
+      const incoming = action.payload;
+      if (incoming) {
+        return { ...state, ...incoming };
+      }
+      break;
+    default:
+      return state;
+  }
+}
+
+const reducer = combineReducers({ login, rehydrate });
+const store = createStore(reducer, undefined,
+  compose(applyMiddleware(), autoRehydrate()),
+);
+
+persistStore(store);
 
 export default store;

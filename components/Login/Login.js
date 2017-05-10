@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
-import { config } from 'react-loopback';
 import { Button, Checkbox, Form, Icon, Input, Modal } from 'antd';
 
 import Link from '../Link';
 import history from '../../src/history';
+import store from '../../src/store';
+import env from '../../src/env.json';
 
 const FormItem = Form.Item;
 const loginFormStyle = { maxWidth: 300 };
@@ -19,7 +20,7 @@ class NormalLoginForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        fetch('http://localhost:4000/api/SystemUsers/login',
+        fetch(`${env.baseUrl}/SystemUsers/login`,
           {
             method: 'POST',
             headers: {
@@ -37,9 +38,13 @@ class NormalLoginForm extends React.Component {
                   // Closing of modal is handled by immediately resolving a promise.
                   return new Promise((resolve) => {
                     history.push('/'); // redirect
+                    // Store access token
                     Promise.resolve(response.json()).then((value) => {
-                      // Store access token
-                      config.set('access_token', value.id);
+                      store.dispatch({
+                        ...value,
+                        type: 'LOGIN',
+                      });
+                      console.log(store.getState());
                     }, (value) => {
                       // not called
                     });

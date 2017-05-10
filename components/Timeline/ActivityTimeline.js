@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Timeline, Tooltip } from 'antd';
+import { Timeline } from 'antd';
 
 import taskPT from '../../api/propTypes/task';
 import sessionPT from '../../api/propTypes/session';

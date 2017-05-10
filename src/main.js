@@ -5,14 +5,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import { Provider } from 'react-redux';
-import { config } from 'react-loopback';
 
 import store from './store';
 import router from './router';
 import history from './history';
-
-// react-loopback connection
-config.set('baseUrl', 'http://localhost:4000/api/');
 
 let routes = require('./routes.json').default; // Loaded with utils/routes-loader.js
 

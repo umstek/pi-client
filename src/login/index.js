@@ -1,7 +1,3 @@
-/**
- * Created by wickramaranga on 3/24/17.
- */
-
 import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
 import LoginForm from '../../components/Login';

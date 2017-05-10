@@ -2,7 +2,6 @@
 import css from '!!style-loader!css-loader!./calendar.css';
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
-import { Tooltip } from 'antd';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import PageLayout from '../../components/Layout/Layout';
 

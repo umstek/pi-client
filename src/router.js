@@ -1,4 +1,5 @@
 import React from 'react';
+import store from './store';
 
 function decodeParam(val) {
   if (!(typeof val === 'string' || val.length === 0)) {
@@ -61,7 +62,9 @@ function resolve(routes, context) {
           Object.keys(params).forEach((k) => {
             url = url.replace(`${k}`, params[k]);
           });
-          return fetch(url, { method }).then(resp => resp.json());
+          // Hack here and insert access token
+          const accessToken = store.getState().login.accessToken;
+          return fetch(url + (accessToken ? `?${accessToken}` : ''), { method }).then(resp => resp.json());
         }),
       ]).then(([Page, ...data]) => {
         const props = keys.reduce((result, key, i) => ({ ...result, [key]: data[i] }), {});

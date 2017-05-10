@@ -1,5 +1,5 @@
-import { PropTypes } from 'react';
-import interruptionPropType from 'interruption';
+import PropTypes from 'prop-types';
+import interruptionPropType from './interruption';
 
 const propTypes = PropTypes.shape({
   id: PropTypes.string,

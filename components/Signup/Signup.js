@@ -1,9 +1,5 @@
-/**
- * Created by wickramaranga on 3/23/17.
- */
-
 import React, { PropTypes } from 'react';
-import { Form, Input, Tooltip, Icon, /* Select,*/ Checkbox, Button, Modal } from 'antd';
+import { Button, Checkbox, Form, Icon, Input, Tooltip } from 'antd';
 import Link from '../Link';
 
 const FormItem = Form.Item;

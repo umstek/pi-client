@@ -1,7 +1,7 @@
-import React, {} from 'react';
+import React from 'react';
 import Rx from 'rx';
 import Cycle from 'cycle-react';
-import { Card, Button, Row, Col, Progress, Icon, Tooltip } from 'antd';
+import { Button, Card, Col, Icon, Progress, Row, Tooltip } from 'antd';
 
 const ButtonGroup = Button.Group;
 

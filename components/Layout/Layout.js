@@ -1,6 +1,6 @@
 import enUS from 'antd/lib/locale-provider/en_US';
-import React, {} from 'react';
-import { LocaleProvider, Layout } from 'antd';
+import React from 'react';
+import { Layout, LocaleProvider } from 'antd';
 import Navigation from './Navigation';
 
 const Content = Layout.Content;
