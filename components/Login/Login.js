@@ -1,9 +1,7 @@
-/**
- * Created by wickramaranga on 3/23/17.
- */
-
 import React, { PropTypes } from 'react';
-import { Form, Icon, Input, Button, Checkbox, Modal } from 'antd';
+import { config } from 'react-loopback';
+import { Button, Checkbox, Form, Icon, Input, Modal } from 'antd';
+
 import Link from '../Link';
 import history from '../../src/history';
 
@@ -16,8 +14,6 @@ class NormalLoginForm extends React.Component {
   static propTypes = {
     form: PropTypes.objectOf(Form).isRequired,
   };
-
-  state = {};
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +37,12 @@ class NormalLoginForm extends React.Component {
                   // Closing of modal is handled by immediately resolving a promise.
                   return new Promise((resolve) => {
                     history.push('/'); // redirect
+                    Promise.resolve(response.json()).then((value) => {
+                      // Store access token
+                      config.set('access_token', value.id);
+                    }, (value) => {
+                      // not called
+                    });
                     resolve();
                   });
                 },
