@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Checkbox, Form, Icon, Input, Modal } from 'antd';
 
 import Link from '../Link';
@@ -46,6 +47,7 @@ class NormalLoginForm extends React.Component {
                       });
                       console.log(store.getState());
                     }, (value) => {
+                      console.log(value);
                       // not called
                     });
                     resolve();

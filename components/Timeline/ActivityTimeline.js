@@ -17,11 +17,11 @@ const Item = Timeline.Item;
 const determineType = (item) => {
   if (item.deadline) {
     return 'Tasks';
-  } else if (item.properlyEnded) {
-    return 'Sessions';
-  } else {
-    return 'Breaks';
   }
+  if (item.properlyEnded) {
+    return 'Sessions';
+  }
+  return 'Breaks';
 };
 
 /**
@@ -64,7 +64,6 @@ class ActivityTimeline extends Component {
             .sort(timeOrder)
             .map((item) => {
               const itemType = determineType(item);
-
             })
         }
       </Timeline>

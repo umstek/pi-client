@@ -1,16 +1,17 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import { autoRehydrate, persistStore } from 'redux-persist';
 import { REHYDRATE } from 'redux-persist/constants';
+import { LOGIN, LOGOUT } from './actionTypes';
 
 function login(state = {}, action) {
   switch (action.type) {
-    case 'LOGIN':
+    case LOGIN:
       return {
         ...state,
         accessToken: action.id,
         userId: action.userId,
       };
-    case 'LOGOUT':
+    case LOGOUT:
       return {};
     default:
       return state;
@@ -19,12 +20,13 @@ function login(state = {}, action) {
 
 function rehydrate(state = {}, action) {
   switch (action.type) {
-    case REHYDRATE:
+    case REHYDRATE: {
       const incoming = action.payload;
       if (incoming) {
         return { ...state, ...incoming };
       }
-      break;
+      return state;
+    }
     default:
       return state;
   }

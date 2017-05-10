@@ -26,7 +26,7 @@ class PageLayout extends React.Component {
           <Content>
             <div {...this.props} />
           </Content>
-          <Footer>
+          <Footer style={{ position: 'absolute', bottom: 0, overflow: 'hidden' }}>
             Copyright UMSTeK
           </Footer>
         </Layout>

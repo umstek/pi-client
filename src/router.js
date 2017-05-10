@@ -64,7 +64,8 @@ function resolve(routes, context) {
           });
           // Hack here and insert access token
           const accessToken = store.getState().login.accessToken;
-          return fetch(url + (accessToken ? `?${accessToken}` : ''), { method }).then(resp => resp.json());
+          return fetch(url + (accessToken ? `?access_token=${accessToken}` : ''), { method })
+            .then(resp => resp.json());
         }),
       ]).then(([Page, ...data]) => {
         const props = keys.reduce((result, key, i) => ({ ...result, [key]: data[i] }), {});

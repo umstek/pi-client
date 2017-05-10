@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 class Subject extends React.Component {
 
