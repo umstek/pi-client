@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import PageLayout from '../../components/Layout';
+import CreateTimer from '../../components/CreateTimer';
 
 class HomePage extends Component {
 
@@ -17,7 +18,9 @@ class HomePage extends Component {
 
   render() {
     return (
-      <PageLayout />
+      <PageLayout>
+        <CreateTimer />
+      </PageLayout>
     );
   }
 }
