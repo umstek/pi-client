@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import 'whatwg-fetch';
-
+import moment from 'moment';
+import 'moment/locale/en-gb';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
@@ -9,6 +10,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import router from './router';
 import history from './history';
+
+moment.locale('en-gb');
 
 let routes = require('./routes.json').default; // Loaded with utils/routes-loader.js
 
