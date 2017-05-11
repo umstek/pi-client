@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import PageLayout from '../../components/Layout';
-import CreateTimer from '../../components/CreateTask';
+import CreateTimer from '../../components/CreateSubject';
 
 class HomePage extends Component {
 

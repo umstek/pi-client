@@ -1,5 +1,5 @@
 {
-  "name": "Layout",
+  "name": "CreateTimer",
   "version": "0.0.0",
   "private": true,
   "main": "./CreateTimer.js"
