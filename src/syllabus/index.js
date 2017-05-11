@@ -1,7 +1,3 @@
-/**
- * Created by wickramaranga on 3/24/17.
- */
-
 import React, { PropTypes, Component } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import PageLayout from '../../components/Layout';
