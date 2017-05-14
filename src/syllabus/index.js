@@ -1,49 +1,22 @@
-import React, { PropTypes, Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
-import PageLayout from '../../components/Layout';
-import Subject from '../../components/Syllabus/Subject';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const { Header, Footer, Sider, Content } = Layout;
-const AMenu = Menu;
-const MenuItem = Menu.Item;
+import SyllabusType from '../../api/propTypes/syllabus';
+import PageLayout from '../../components/Layout';
+import Syllabus from '../../components/Syllabus';
 
 class SyllabusPage extends Component {
   static propTypes = {
-    subjects: PropTypes.arrayOf(PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      desc: PropTypes.string.isRequired,
-      weight: PropTypes.number.isRequired,
-      difficulty: PropTypes.number.isRequired,
-      id: PropTypes.string.isRequired,
-      syllabusId: PropTypes.string.isRequired,
-    }).isRequired).isRequired,
+    syllabuses: PropTypes.arrayOf(SyllabusType),
   };
 
   render() {
+    const syllabus = this.props.syllabuses
+      .sort((a, b) => new Date(a.endDate) - new Date(b.endDate))[0];
+
     return (
       <PageLayout>
-        <Layout>
-          <Sider
-            breakpoint="lg"
-            collapsedWidth="0"
-            onCollapse={(collapsed, type) => {
-              console.log(collapsed, type);
-            }}
-          >
-            <div className="logo" />
-            <AMenu theme="light" mode="vertical">
-              {
-                this.props.subjects.map(subject =>
-                  <MenuItem key={subject.id}>
-                    <Icon type="book" />
-                    <span className="nav-text">{subject.name}</span>
-                  </MenuItem>,
-                )
-              }
-            </AMenu>
-          </Sider>
-          <Subject />
-        </Layout>
+        <Syllabus syllabus={syllabus} />
       </PageLayout>
     );
   }
