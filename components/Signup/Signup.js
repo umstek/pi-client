@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
-import { Button, Checkbox, Form, Icon, Input, Tooltip } from 'antd';
+import { Button, Checkbox, Form, Icon, Input, Tooltip, Select } from 'antd';
 import Link from '../Link';
 
 const FormItem = Form.Item;
+const Option = Select.Option;
 // const Option = Select.Option;
 
 class RegistrationForm extends React.Component {
@@ -22,10 +23,20 @@ class RegistrationForm extends React.Component {
       }
     });
   };
+
   handleConfirmBlur = (e) => {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
+
+  checkAgreement = (rule, value, callback) => {
+    if (value === true) {
+      callback();
+    } else {
+      callback('Accept the agreement. ');
+    }
+  };
+
   checkUsername = (rule, value, callback) => {
     // const form = this.props.form;
     if (!value) {
@@ -40,6 +51,7 @@ class RegistrationForm extends React.Component {
       callback();
     }
   };
+
   checkPassword = (rule, value, callback) => {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
@@ -48,6 +60,7 @@ class RegistrationForm extends React.Component {
       callback();
     }
   };
+
   checkConfirm = (rule, value, callback) => {
     const form = this.props.form;
     if (value && this.state.confirmDirty) {
@@ -58,16 +71,19 @@ class RegistrationForm extends React.Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
         sm: { span: 6 },
       },
+
       wrapperCol: {
         xs: { span: 24 },
         sm: { span: 14 },
       },
     };
+
     const tailFormItemLayout = {
       wrapperCol: {
         xs: {
@@ -80,15 +96,10 @@ class RegistrationForm extends React.Component {
         },
       },
     };
-    // const prefixSelector = getFieldDecorator('prefix', {
-    //   initialValue: '94',
-    // })(
-    //   <Select className="icp-selector">
-    //     <Option value="94">+94</Option>
-    //   </Select>,
-    // );
+
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} className="signup-form">
+
         <FormItem
           {...formItemLayout}
           label="E-mail"
@@ -104,6 +115,7 @@ class RegistrationForm extends React.Component {
             <Input />,
           )}
         </FormItem>
+
         <FormItem
           {...formItemLayout}
           label="Password"
@@ -119,6 +131,7 @@ class RegistrationForm extends React.Component {
             <Input type="password" />,
           )}
         </FormItem>
+
         <FormItem
           {...formItemLayout}
           label="Confirm Password"
@@ -134,6 +147,7 @@ class RegistrationForm extends React.Component {
             <Input type="password" onBlur={this.handleConfirmBlur} />,
           )}
         </FormItem>
+
         <FormItem
           {...formItemLayout}
           label={(
@@ -156,26 +170,44 @@ class RegistrationForm extends React.Component {
             <Input />,
           )}
         </FormItem>
-        {/* <FormItem */}
-        {/* {...formItemLayout}*/}
-        {/* label="Phone Number"*/}
-        {/* >*/}
-        {/* {getFieldDecorator('phone', {*/}
-        {/* rules: [{ required: true, message: 'Please input your phone number!' }],*/}
-        {/* })(*/}
-        {/* <Input addonBefore={prefixSelector} />,*/}
-        {/* )}*/}
-        {/* </FormItem>*/}
+
         <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
           {getFieldDecorator('agreement', {
+            rules: [{
+              required: true, message: 'Please accept the agreement. ',
+            }, {
+              validator: this.checkAgreement,
+            }],
             valuePropName: 'checked',
+            initialValue: false,
           })(
-            <Checkbox>I have read the <Link to="about/eula">agreement</Link></Checkbox>,
+            <Checkbox>I have read the <a href="about/eula" rel="noopener noreferrer" target="_blank">agreement</a></Checkbox>,
           )}
         </FormItem>
-        <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit" size="large">Register</Button>
+
+        <FormItem
+          {...formItemLayout}
+          label={(
+            <span>
+              User type &nbsp;
+              <Tooltip title="Are you a student? or an expert?">
+                <Icon type="question-circle-o" />
+              </Tooltip>
+            </span>
+          )}
+        >
+          {getFieldDecorator('userType', { initialValue: 'Student' })(
+            <Select>
+              <Option key="student">Student</Option>
+              <Option key="author">Content Author</Option>
+            </Select>,
+          )}
         </FormItem>
+
+        <FormItem {...tailFormItemLayout}>
+          <Button type="primary" htmlType="submit" size="large">Register</Button>,
+        </FormItem>
+
       </Form>
     );
   }
