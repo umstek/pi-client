@@ -1,33 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Icon, Input, InputNumber } from 'antd';
+import { Form, Icon, Input, InputNumber, Modal, Button } from 'antd';
 
 const FormItem = Form.Item;
 
-class CreateSubject extends Component {
-  static propTypes = {
-    form: PropTypes.objectOf(Form).isRequired,
+const CreateSubjectForm = Form.create()((props) => {
+  const formItemLayout = {
+    labelCol: { span: 6 },
+    wrapperCol: { span: 14 },
   };
+  const { visible, loading, onCancel, onOk, form } = props;
+  const { getFieldDecorator } = form;
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
-    });
-  };
-
-  render() {
-    const { getFieldDecorator } = this.props.form;
-    const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 14 },
-    };
-
-    return (
-      <Form onSubmit={this.handleSubmit}>
+  return (
+    <Modal
+      visible={visible}
+      title="Create a subject"
+      onOk={onOk}
+      onCancel={onCancel}
+      footer={[
+        <Button key="back" size="large" onClick={onCancel}>Cancel</Button>,
+        <Button
+          key="submit" type="primary" size="large" loading={loading}
+          onClick={onOk}
+        >
+          Submit
+        </Button>,
+      ]}
+    >
+      <Form>
         <FormItem {...formItemLayout}>
           {getFieldDecorator('name', {
             rules: [{ required: true, message: 'Please input a name for the subject!' }],
@@ -59,10 +60,8 @@ class CreateSubject extends Component {
           )}
         </FormItem>
       </Form>
-    );
-  }
-}
-
-const CreateSubjectForm = Form.create()(CreateSubject);
+    </Modal>
+  );
+});
 
 export default CreateSubjectForm;
