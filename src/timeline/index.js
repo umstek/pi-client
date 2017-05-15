@@ -3,6 +3,7 @@ import { Timeline, Tooltip, Layout } from 'antd';
 import PageLayout from '../../components/Layout';
 
 const TimeItem = Timeline.Item;
+const Footer = Layout.Footer;
 
 class TimelinePage extends Component {
   render() {
@@ -45,6 +46,7 @@ class TimelinePage extends Component {
             }
           </Timeline>
         </Layout>
+        <Footer />
       </PageLayout>
     );
   }

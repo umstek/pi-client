@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import PageLayout from '../../components/Layout';
 import propTypes from '../../api/propTypes/article';
+import { Card } from 'antd';
 
 class FeedPage extends Component {
 
@@ -17,11 +18,11 @@ class FeedPage extends Component {
       <PageLayout>
         {
           this.props.articles.map(article => (
-            <div key={article.id}>
-              <h2>{article.title}</h2>
-              <h3>{article.author}</h3>
-              <div dangerouslySetInnerHTML={{ __html: article.content }} />
-            </div>
+            <Card title={article.title} extra={<h3>{article.author}</h3>} style={{ width: 800 }}>
+              <div key={article.id}>
+                <div dangerouslySetInnerHTML={{ __html: article.content }} />
+              </div>
+            </Card>
           ))
         }
       </PageLayout>
