@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Icon, Input, InputNumber, Switch } from 'antd';
+import { Form, Icon, Input, InputNumber, Switch, Modal, Button } from 'antd';
+
+import store from '../../src/store';
+import env from '../../src/env.json';
+import history from '../../src/history';
 
 const FormItem = Form.Item;
 
@@ -15,6 +19,37 @@ class CreateTimer extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+
+        fetch(`${env.baseUrl}/Timers?${store.getState().login.accessToken}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(values),
+          })
+          .then((response) => {
+            if (response.ok) {
+              Modal.success({
+                title: 'Success',
+                content: 'Timer added. ',
+                onOk() {
+                  return new Promise((resolve) => {
+                    history.push('/syllabus');
+                    Promise.resolve(response.json()).then((value) => {
+                      console.log(value);
+                    });
+                    resolve();
+                  });
+                },
+              });
+            } else {
+              Modal.warn({
+                title: response.statusText,
+                content: 'Cannot add timer. Please try again later. ',
+              });
+            }
+          });
       }
     });
   };
@@ -53,6 +88,9 @@ class CreateTimer extends Component {
             <Switch />,
           )}
         </FormItem>
+        <Button type="primary" htmlType="submit">
+          Create
+        </Button>
       </Form>
     );
   }

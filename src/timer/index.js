@@ -4,11 +4,19 @@ import PageLayout from '../../components/Layout';
 import Timer from '../../components/Timer/Timer';
 
 class TimerPage extends Component {
+  constructor(props) {
+    super(props);
+
+    console.log(this.props);
+  }
+
   render() {
+    // eslint-disable-next-line react/prop-types
+    const { hh, mm, ss } = this.props.route.params;
     return (
       <PageLayout>
-        <Layout style={{ backgroundColor: 'white' }} >
-          <Timer hours={0} minutes={25} seconds={0} />
+        <Layout style={{ backgroundColor: 'white' }}>
+          <Timer hours={parseInt(hh, 10)} minutes={parseInt(mm, 10)} seconds={parseInt(ss, 10)} />
         </Layout>
       </PageLayout>
     );

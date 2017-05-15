@@ -31,8 +31,6 @@ class Syllabus extends Component {
             });
         }
       });
-
-    this.forceUpdate();
   }
 
   state = {

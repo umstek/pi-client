@@ -27,43 +27,43 @@ class Navigation extends React.Component {
         mode="horizontal"
       >
         <MenuItem key="feed">
-          <Link to="feed">
+          <Link to="/feed">
             <Icon type="solution" />
             Feed
           </Link>
         </MenuItem>
         <MenuItem key="timeline">
-          <Link to="timeline">
+          <Link to="/timeline">
             <Icon type="bars" />
             Timeline
           </Link>
         </MenuItem>
         <MenuItem key="calendar">
-          <Link to="calendar">
+          <Link to="/calendar">
             <Icon type="calendar" />
             Calendar
           </Link>
         </MenuItem>
         <MenuItem key="syllabus">
-          <Link to="syllabus">
+          <Link to="/syllabus">
             <Icon type="book" />
             Syllabus
           </Link>
         </MenuItem>
         <MenuItem key="home">
-          <Link to=".">
+          <Link to="/">
             <Icon type="home" />
             Home
           </Link>
         </MenuItem>
         <MenuItem key="settings" style={{ float: 'right' }}>
-          <Link to="settings">
+          <Link to="/settings">
             <Icon type="setting" />
             Settings
           </Link>
         </MenuItem>
         <MenuItem key="profile" style={{ float: 'right' }}>
-          <Link to="profile">
+          <Link to="/profile">
             <Icon type="user" />
             Profile
           </Link>

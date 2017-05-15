@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import { Timeline, Tooltip, Layout } from 'antd';
+import { Timeline, Tooltip, Layout, Button } from 'antd';
 import PageLayout from '../../components/Layout';
+import TimerManager from '../../components/TimerManager';
 
 const TimeItem = Timeline.Item;
 const Footer = Layout.Footer;
@@ -46,7 +47,9 @@ class TimelinePage extends Component {
             }
           </Timeline>
         </Layout>
-        <Footer />
+        <Footer>
+          <TimerManager />
+        </Footer>
       </PageLayout>
     );
   }

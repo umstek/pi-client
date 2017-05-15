@@ -67,7 +67,11 @@
     "page": "./editor"
   },
   {
-    "path": "/timer/:timerid",
+    "path": "/timer/:hh/:mm/:ss",
     "page": "./timer"
+  },
+  {
+    "path": "/timer/create",
+    "page": "./createTimer"
   }
 ]
