@@ -23,22 +23,22 @@ class TimelinePage extends Component {
                             ?
                             (
                               <div>
-                                <p>{item.startTime}</p>
-                                <p>{item.endTime}</p>
+                                <p>{new Date(item.startTime).toLocaleString()}</p>
+                                <p>{new Date(item.endTime).toLocaleString()}</p>
                               </div>
                             )
                             :
                             (
                               <div>
-                                <p>{item.startTime}</p>
-                                <p>{item.endTime}</p>
-                                <p>{item.rating}</p>
+                                <p>{new Date(item.startTime).toLocaleString()}</p>
+                                <p>{new Date(item.endTime).toLocaleString()}</p>
+                                <p>{new Date(item.rating).toLocaleString()}</p>
                               </div>
                             )
                         }
                       </div>}
                     >
-                      {item.properlyEnded === undefined ? 'Break' : 'Session'} {item.startTime}
+                      {item.properlyEnded === undefined ? 'Break' : 'Session'} {new Date(item.startTime).toLocaleString()}
                     </Tooltip>
                   </TimeItem>,
                 )

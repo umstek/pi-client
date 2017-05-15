@@ -33,20 +33,26 @@ class Syllabus extends Component {
 
   state = {
     subjects: [],
+    selectedSubject: null,
+  };
+
+  selectSubject = ({ item, key, selectedKeys }) => {
+    const newState = {
+      ...this.state,
+      selectedSubject: this.state.subjects.filter(subject => subject.id === key)[0],
+    };
+
+    this.setState(newState);
+
+    this.forceUpdate();
   };
 
   render() {
     return (
       <Layout>
-        <Sider
-          breakpoint="lg"
-          collapsedWidth="0"
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
-        >
+        <Sider breakpoint="lg" collapsedWidth="0">
           <div className="logo" />
-          <AMenu theme="light" mode="vertical">
+          <AMenu theme="light" mode="vertical" selectable onSelect={this.selectSubject}>
             {
               this.state.subjects.map(subject =>
                 <MenuItem key={subject.id}>
@@ -57,7 +63,7 @@ class Syllabus extends Component {
             }
           </AMenu>
         </Sider>
-        <Subject />
+        <Subject subject={this.state.selectedSubject} />
       </Layout>
     );
   }
