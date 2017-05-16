@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { debounce } from 'lodash';
-import { DatePicker, Form, Icon, Input, InputNumber, Select, Spin } from 'antd';
+import { Button, DatePicker, Form, Icon, Input, InputNumber, Modal, Select, Spin } from 'antd';
+
+import history from '../../src/history';
+import store from '../../src/store';
+import env from '../../src/env.json';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -30,7 +34,33 @@ class CreateTask extends Component {
   };
 
   fetchTopic = (value) => {
+    console.log('fetching topics', value);
+    this.lastFetchId += 1;
+    const fetchId = this.lastFetchId;
+    this.setState({ fetching: true });
+    // noinspection JSUnresolvedVariable
+    fetch(`${env.baseUrl}/SubjectTopics?access_token=${store.getState().login.accessToken}`)
+      .then(response => response.json())
+      .then((body) => {
+        if (fetchId !== this.lastFetchId) { // for fetch callback order
+          return;
+        }
+        console.log(body);
+        const data = body.map(topic => ({
+          text: `${topic.desc}`,
+          value: topic.id,
+          fetching: false,
+        }));
+        this.setState({ data });
+      });
+  };
 
+  handleChange = (value) => {
+    this.setState({
+      value,
+      data: [],
+      fetching: false,
+    });
   };
 
   handleSubmit = (e) => {
@@ -39,6 +69,52 @@ class CreateTask extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+
+        const processedValues =
+          values.attachedTo === 'Event' ? {
+            name: values.name,
+            desc: values.desc,
+            estTime: values.estTime,
+            deadline: values.deadline,
+            eventId: values.attach,
+          } : {
+            name: values.name,
+            desc: values.desc,
+            estTime: values.estTime,
+            deadline: values.deadline,
+            subjectTopicId: values.attach,
+          };
+
+        fetch(`${env.baseUrl}/Tasks?${store.getState().login.accessToken}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json; charset=UTF-8',
+            },
+            body: JSON.stringify(processedValues),
+          })
+          .then((response) => {
+            if (response.ok) {
+              Modal.success({
+                title: 'Success',
+                content: 'Task added. ',
+                onOk() {
+                  return new Promise((resolve) => {
+                    history.push('/calendar');
+                    Promise.resolve(response.json()).then((value) => {
+                      console.log(value);
+                    });
+                    resolve();
+                  });
+                },
+              });
+            } else {
+              Modal.warn({
+                title: response.statusText,
+                content: 'Cannot add task. Please try again later. ',
+              });
+            }
+          });
       }
     });
   };
@@ -105,6 +181,7 @@ class CreateTask extends Component {
             rules: [{ required: true, message: `Please select ${getFieldValue('attachedTo').toLowerCase()}` }],
           })(
             <Select
+              mode="combobox"
               labelInValue
               value={value}
               placeholder={`Select ${getFieldValue('attachedTo').toLowerCase()}`}
@@ -119,6 +196,9 @@ class CreateTask extends Component {
           )}
         </FormItem>
 
+        <Button type="primary" htmlType="submit">
+          Create
+        </Button>
       </Form>
     );
   }

@@ -14,7 +14,7 @@ class TimelinePage extends Component {
           <Timeline>
             {
               [...this.props.breaks, ...this.props.sessions]
-                .sort((a, b) => new Date(a.startTime) - new Date(b.startTime))
+                .sort((a, b) => new Date(b.startTime) - new Date(a.startTime))
                 .map(item =>
                   <TimeItem key={item.id} color={item.properlyEnded === undefined ? 'blue' : 'green'}>
                     <Tooltip

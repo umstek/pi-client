@@ -134,7 +134,7 @@ class EditorPage extends React.Component {
           </Helmet>
         </Header>
 
-        <Content>
+        <Content style={{ height: 400 }}>
           <Editor
             style={css}
             editorState={this.state.editorState}

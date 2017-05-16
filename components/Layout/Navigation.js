@@ -56,6 +56,12 @@ class Navigation extends React.Component {
             Home
           </Link>
         </MenuItem>
+        <MenuItem key="editor">
+          <Link to="/editor">
+            <Icon type="edit" />
+            Editor
+          </Link>
+        </MenuItem>
         <MenuItem key="settings" style={{ float: 'right' }}>
           <Link to="/settings">
             <Icon type="setting" />
