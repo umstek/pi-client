@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 
 import SyllabusType from '../../api/propTypes/syllabus';
@@ -16,6 +17,9 @@ class SyllabusPage extends Component {
 
     return (
       <PageLayout>
+        <Helmet>
+          <title>Syllabus</title>
+        </Helmet>
         <Syllabus syllabus={syllabus} />
       </PageLayout>
     );

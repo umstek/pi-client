@@ -1,8 +1,5 @@
-/**
- * Created by wickramaranga on 3/24/17.
- */
-
 import React, { PropTypes } from 'react';
+import Helmet from 'react-helmet';
 import Layout from '../../components/Layout';
 import SignupForm from '../../components/Signup';
 
@@ -23,6 +20,9 @@ class SignupPage extends React.Component {
   render() {
     return (
       <Layout>
+        <Helmet>
+          <title>Create an account</title>
+        </Helmet>
         <SignupForm />
       </Layout>
     );

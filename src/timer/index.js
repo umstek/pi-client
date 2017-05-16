@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Tooltip, Layout } from 'antd';
+import Helmet from 'react-helmet';
 import PageLayout from '../../components/Layout';
 import Timer from '../../components/Timer/Timer';
 
@@ -15,6 +16,9 @@ class TimerPage extends Component {
     const { hh, mm, ss } = this.props.route.params;
     return (
       <PageLayout>
+        <Helmet>
+          <title>Timer running...</title>
+        </Helmet>
         <Layout style={{ backgroundColor: 'white' }}>
           <Timer hours={parseInt(hh, 10)} minutes={parseInt(mm, 10)} seconds={parseInt(ss, 10)} />
         </Layout>

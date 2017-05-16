@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Helmet from 'react-helmet';
 import Layout from '../../components/Layout';
 import LoginForm from '../../components/Login';
 
@@ -19,6 +20,9 @@ class LoginPage extends React.Component {
   render() {
     return (
       <Layout>
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
         <LoginForm />
       </Layout>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import { Timeline, Tooltip, Layout, Button } from 'antd';
 import PageLayout from '../../components/Layout';
 import TimerManager from '../../components/TimerManager';
@@ -10,6 +11,9 @@ class TimelinePage extends Component {
   render() {
     return (
       <PageLayout>
+        <Helmet>
+          <title>Timeline</title>
+        </Helmet>
         <Layout style={{ backgroundColor: 'white', padding: 25 }}>
           <Timeline>
             {

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Helmet from 'react-helmet';
 import PageLayout from '../../components/Layout';
 import propTypes from '../../api/propTypes/article';
 import { Card, Row, Col } from 'antd';
@@ -16,6 +17,9 @@ class FeedPage extends Component {
   render() {
     return (
       <PageLayout>
+        <Helmet>
+          <title>News Feed</title>
+        </Helmet>
         {
           this.props.articles.map(article => (
             <Row type="flex" justify="space-around" style={{ padding: 30 }}>

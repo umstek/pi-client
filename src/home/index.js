@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Helmet from 'react-helmet';
 import { Card, Row, Col } from 'antd';
 import Link from '../../components/Link';
 import PageLayout from '../../components/Layout';
@@ -20,6 +21,9 @@ class HomePage extends Component {
   render() {
     return (
       <PageLayout>
+        <Helmet>
+          <title>Productivity Improvement Toolkit</title>
+        </Helmet>
         <Row type="flex" justify="space-between" align="middle" style={{ padding: 25 }}>
           <Col span={6}>
             <Card title="Feed" extra={<Link to="/feed">Go</Link>} style={{ width: 300, height: 300 }}>
