@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import { Timeline, Tooltip, Layout, Button } from 'antd';
 import PageLayout from '../../components/Layout';
 import TimerManager from '../../components/TimerManager';
@@ -10,7 +10,7 @@ class TimelinePage extends Component {
   render() {
     return (
       <PageLayout>
-        <Layout style={{ backgroundColor: 'white' }}>
+        <Layout style={{ backgroundColor: 'white', padding: 25 }}>
           <Timeline>
             {
               [...this.props.breaks, ...this.props.sessions]
@@ -34,7 +34,7 @@ class TimelinePage extends Component {
                               <div>
                                 <p>{new Date(item.startTime).toLocaleString()}</p>
                                 <p>{new Date(item.endTime).toLocaleString()}</p>
-                                <p>{new Date(item.rating).toLocaleString()}</p>
+                                <p>{`Rating: ${item.rating}`}</p>
                               </div>
                             )
                         }
