@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import './App.css';
+import { Provider } from 'react-redux';
+import { LocaleProvider } from 'antd';
+import { ConnectedRouter } from 'react-router-redux';
+// import {Route} from 'react-router-dom';
+
+import { store, enUS, history } from './main';
+import './App.scss';
 
 class App extends Component {
   render() {
-    return <div />;
+    return (
+      <Provider store={store}>
+        <LocaleProvider locale={enUS}>
+          <ConnectedRouter history={history} />
+        </LocaleProvider>
+      </Provider>
+    );
   }
 }
 
