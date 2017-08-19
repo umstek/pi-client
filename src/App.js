@@ -11,7 +11,7 @@ import LoginForm from './scenes/pages/Login';
 import PrivilegedRoute from './components/PrivilegedRoute/index';
 
 import './App.scss';
-import SignupForm from './scenes/pages/SignUp/index';
+import SignUpForm from './scenes/pages/SignUp/index';
 
 class App extends Component {
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
               <Route exact path="/" component={Button} />
               <Route exact path="/help" component={Button} />
               <Route exact path="/login" component={LoginForm} />
-              <Route exact path="/register" component={SignupForm} />
+              <Route exact path="/register" component={SignUpForm} />
 
               <PrivilegedRoute exact path="/profile" component={Input} />
               <PrivilegedRoute exact path="/settings" component={Input} />
