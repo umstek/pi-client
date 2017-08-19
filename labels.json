@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Priority: Critical",
+    "color": "#d50000"
+  },
+  {
+    "name": "Priority: High",
+    "color": "#ff6d00"
+  },
+  {
+    "name": "Priority: Low",
+    "color": "#64dd17"
+  },
+  {
+    "name": "Priority: Medium",
+    "color": "#ffd600"
+  },
+  {
+    "name": "Status: Duplicate",
+    "color": "#777777"
+  },
+  {
+    "name": "Status: Help needed",
+    "color": "#78909c"
+  },
+  {
+    "name": "Status: Invalid",
+    "color": "#000000"
+  },
+  {
+    "name": "Status: Won't fix",
+    "color": "#ffffff"
+  },
+  {
+    "name": "Type: Bug",
+    "color": "#dd2c00"
+  },
+  {
+    "name": "Type: Enhancement",
+    "color": "#aeea00"
+  },
+  {
+    "name": "Type: Feature",
+    "color": "#00c853"
+  },
+  {
+    "name": "Type: Maintenance",
+    "color": "#00b8d4"
+  },
+  {
+    "name": "Type: Question",
+    "color": "#aa00ff"
+  }
+]
