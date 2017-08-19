@@ -1,4 +1,3 @@
-import React from 'react';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { routerMiddleware, routerReducer } from 'react-router-redux';
 import { createBrowserHistory as createHistory } from 'history';
