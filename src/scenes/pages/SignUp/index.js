@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Checkbox, Form, Icon, Input, Tooltip, Select } from 'antd';
 import { Link } from 'react-router-dom';
 
+import './signUp.css';
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -86,7 +88,7 @@ class RegistrationForm extends React.Component {
     };
 
     return (
-      <Form>
+      <Form className="sign-up-form">
         <FormItem {...formItemLayout} label="E-mail" hasFeedback>
           {getFieldDecorator('email', {
             rules: [
@@ -195,7 +197,12 @@ class RegistrationForm extends React.Component {
         </FormItem>
 
         <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit" size="large">
+          <Button
+            className="sign-up-form-button"
+            type="primary"
+            htmlType="submit"
+            size="large"
+          >
             Register
           </Button>,
         </FormItem>

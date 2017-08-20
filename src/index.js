@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 
 import registerServiceWorker from './registerServiceWorker';
-import './index.scss';
+import './index.css';
 
 import App from './App';
 

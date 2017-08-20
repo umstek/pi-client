@@ -2,29 +2,26 @@ import React from 'react';
 import { Button, Checkbox, Form, Icon, Input } from 'antd';
 import { Link } from 'react-router-dom';
 
+import './login.css';
+
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form>
+      <Form className="login-form">
         <FormItem>
           {getFieldDecorator('username', {
             rules: [{ required: true, message: 'Please input your username!' }]
-          })(
-            <Input
-              prefix={<Icon type="user" style={{ fontSize: 13 }} />}
-              placeholder="Username"
-            />
-          )}
+          })(<Input prefix={<Icon type="user" />} placeholder="Username" />)}
         </FormItem>
         <FormItem>
           {getFieldDecorator('password', {
             rules: [{ required: true, message: 'Please input your Password!' }]
           })(
             <Input
-              prefix={<Icon type="lock" style={{ fontSize: 13 }} />}
+              prefix={<Icon type="lock" />}
               type="password"
               placeholder="Password"
             />
@@ -35,7 +32,9 @@ class NormalLoginForm extends React.Component {
             valuePropName: 'checked',
             initialValue: true
           })(<Checkbox>Remember me</Checkbox>)}
-          <a className="login-form-forgot">Forgot password</a>
+          <Link to="/login/forgot" className="login-form-forgot">
+            Forgot password
+          </Link>
           <Button
             type="primary"
             htmlType="submit"

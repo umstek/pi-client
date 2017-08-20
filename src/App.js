@@ -10,7 +10,7 @@ import PageLayout from './scenes/Layout/index';
 import LoginForm from './scenes/pages/Login';
 import PrivilegedRoute from './components/PrivilegedRoute/index';
 
-import './App.scss';
+import './App.css';
 import SignUpForm from './scenes/pages/SignUp/index';
 
 class App extends Component {
