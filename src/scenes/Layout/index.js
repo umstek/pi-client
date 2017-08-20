@@ -5,7 +5,6 @@ import Navigator from './Navigator';
 const { Header, Content, Footer } = Layout;
 
 class PageLayout extends Component {
-  // Dumb
   render() {
     return (
       <Layout>

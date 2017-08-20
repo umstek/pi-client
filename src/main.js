@@ -1,21 +1,30 @@
-import React from 'react';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { routerMiddleware, routerReducer } from 'react-router-redux';
+import createSagaMiddleware from 'redux-saga';
+import {
+  routerMiddleware as createRouterMiddleware,
+  routerReducer
+} from 'react-router-redux';
 import { createBrowserHistory as createHistory } from 'history';
 import enUS from 'antd/lib/locale-provider/en_US';
 
 import reducers from './reducers';
+// eslint-disable-next-line
+import sagas from './sagas';
 
-import './index.scss';
+import './index.css';
 
 const history = createHistory();
-const middleware = routerMiddleware(history);
+const routerMiddleware = createRouterMiddleware(history);
+const sagaMiddleware = createSagaMiddleware();
+
 const store = createStore(
   combineReducers({
     ...reducers,
     router: routerReducer
   }),
-  applyMiddleware(middleware)
+  applyMiddleware(routerMiddleware, sagaMiddleware)
 );
+
+// sagaMiddleware.run(sagas);
 
 export { store, enUS, history };

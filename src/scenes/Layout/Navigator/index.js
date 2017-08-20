@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
-import { Menu } from 'antd';
+import { connect } from 'react-redux';
 
-const MenuItem = Menu.Item;
+import Component from './Navigator';
 
-class Navigator extends Component {
-  // Intelligent
-  render() {
-    return (
-      <Menu mode="horizontal" theme="dark">
-        <MenuItem key="profile">Profile</MenuItem>
-        <MenuItem key="settings">Settings</MenuItem>
-      </Menu>
-    );
-  }
-}
+const mapStateToProps = state => {
+  return { userType: state.user.type };
+};
+const mapDispatchToProps = dispatch => {
+  return { dispatch };
+};
+
+const Navigator = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export default Navigator;

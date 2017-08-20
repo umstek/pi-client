@@ -1,7 +1,7 @@
 [ignore]
-<PROJECT_ROOT>\/node_modules/draft-js/lib/getTextContentFromFiles.js.flow
-<PROJECT_ROOT>\/(.*\/)*.*\.((s)?css|jp(e)?g|png|svg|ico|htm(l)?|json|test\.js)
-<PROJECT_ROOT>\/(.*\/)*\..*
+<PROJECT_ROOT>/node_modules/draft-js/lib/getTextContentFromFiles.js.flow
+<PROJECT_ROOT>/(.*/)*.*\.((s)?css|jp(e)?g|png|svg|ico|htm(l)?|json|test\.js)
+<PROJECT_ROOT>/(.*/)*\..*
 
 [include]
 

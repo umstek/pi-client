@@ -14,6 +14,7 @@
     "react-router-redux": "next",
     "react-scripts": "1.0.10",
     "redux": "^3.7.2",
+    "redux-saga": "^0.15.6",
     "rxjs": "^5.4.2",
     "swagger-client": "^3.0.19"
   },
@@ -31,7 +32,7 @@
     "start-js": "react-scripts start",
     "start": "npm-run-all -p watch-css start-js",
     "flow": "flow",
-    "test": "react-scripts test --env=jsdom",
+    "test": "npm run build-css && react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
