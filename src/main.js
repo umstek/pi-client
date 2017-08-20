@@ -11,7 +11,7 @@ import reducers from './reducers';
 // eslint-disable-next-line
 import sagas from './sagas';
 
-import './index.scss';
+import './index.css';
 
 const history = createHistory();
 const routerMiddleware = createRouterMiddleware(history);
